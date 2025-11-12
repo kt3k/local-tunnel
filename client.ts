@@ -42,7 +42,7 @@ function main() {
         headers: Object.fromEntries(data.headers),
       });
       const respBody = await resp.text();
-      console.log(data.method, data.pathname, "->", resp.status);
+      console.log(data.method, data.pathname + data.search, "->", resp.status);
       sock.send(JSON.stringify({
         id: data.id,
         body: respBody,
