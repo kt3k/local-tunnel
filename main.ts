@@ -42,6 +42,7 @@ export default {
         JSON.stringify({
           id: reqId,
           pathname: url.pathname,
+          query: url.search,
           method: req.method,
           headers: [...req.headers],
           body: (await req.text()) || null,

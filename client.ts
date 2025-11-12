@@ -29,13 +29,14 @@ function main() {
       id: string;
       pathname: string;
       method: string;
+      search: string;
       body: string;
       status: number;
       headers: [string, string][];
     };
 
     try {
-      const resp = await fetch(`http://localhost:${port}${data.pathname}`, {
+      const resp = await fetch(`http://localhost:${port}${data.pathname}${data.search}`, {
         method: data.method,
         body: data.body,
         headers: Object.fromEntries(data.headers),
