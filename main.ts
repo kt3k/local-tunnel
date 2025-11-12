@@ -51,7 +51,10 @@ export default {
       return promise;
     } else {
       console.log("WebSocket not connected");
-      return new Response("Not Found", { status: 404 });
+      return new Response(`Usage: deno -N ${url.origin}/client.ts <port>
+
+  Example:
+    deno -N ${url.origin}/client.ts 8000`);
     }
   },
 };
