@@ -53,8 +53,8 @@ export default {
       console.log("WebSocket not connected");
       return new Response(`Usage: deno -N ${url.origin}/client.ts <port>
 
-  Example:
-    deno -N ${url.origin}/client.ts 8000`);
+Example:
+  deno -N ${url.origin}/client.ts 8000`);
     }
   },
 };
