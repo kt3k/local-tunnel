@@ -2,6 +2,7 @@ interface Message {
   id: string;
   pathname: string;
   method: string;
+  search: string;
   body: string;
   status: number;
   headers: [string, string][];
@@ -39,7 +40,7 @@ function main() {
     const data = JSON.parse(event.data) as Message;
 
     try {
-      const resp = await fetch(`http://localhost:${port}${data.pathname}`, {
+      const resp = await fetch(`http://localhost:${port}${data.pathname}${data.search}`, {
         method: data.method,
         body: data.body,
         headers: Object.fromEntries(data.headers),
@@ -47,7 +48,7 @@ function main() {
 
       const respBody = await resp.text();
 
-      console.log(data.method, data.pathname, "->", resp.status);
+      console.log(data.method, data.pathname + data.search, "->", resp.status);
 
       sock.send(
         JSON.stringify({

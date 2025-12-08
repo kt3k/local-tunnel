@@ -57,12 +57,19 @@ export default {
         JSON.stringify({
           id: reqId,
           pathname: url.pathname,
+          search: url.search,
           method: req.method,
           headers: [...req.headers],
           body: (await req.text()) || null,
         }),
       );
       return promise;
+    } else {
+      console.log("WebSocket not connected");
+      return new Response(`Usage: deno -N ${url.origin}/client.ts <port>
+
+Example:
+  deno -N ${url.origin}/client.ts 8000`);
     }
     console.log("WebSocket not connected");
     return new Response("Not Found", { status: 404 });

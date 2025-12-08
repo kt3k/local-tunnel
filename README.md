@@ -1,6 +1,6 @@
 # local-tunnel
 
-ngrok-like tool written in Deno, deployed to Deno Deploy
+ngrok-like tool written in Deno. You can get a free fixed domain name if you deploy this app to Deno Deploy.
 
 ## Usage
 
